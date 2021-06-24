@@ -10,13 +10,11 @@ router.get('/sale/:id', async (req, res) => {
       res.send(sale)
   })  
  
- 
-  //Filtered by store location
+ //Filtered by store location
   router.get('/store/:location', async (req, res) => {
       const locationSales = await Sale.find({storeLocation: req.params.location})
                                        .select('storeLocation')
-  
-      
+       
       res.send(locationSales)
   })
 
@@ -36,8 +34,8 @@ router.get('/sale/:id', async (req, res) => {
         filter = {couponUsed: req.query.couponused}
     }
     const salesList = await Sale.find(filter).select('-items')
-      
-      res.send(salesList)
+    
+    res.send(salesList)
   })
   
 
