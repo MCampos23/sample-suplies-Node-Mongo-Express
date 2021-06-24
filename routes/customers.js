@@ -21,4 +21,15 @@ router.get('/age/young', async (req, res) => {
     res.send(youngCustomers)
 })
 
+//Filter by customer age > 35 & < 65
+router.get('/age/young', async (req, res) => {
+    const youngCustomers = await Sale.find({"customer.age": {$gt: 35}, "customer.age": {$lt: 65}).select('customer')                                             
+    res.send(youngCustomers)
+})
+
+//Filter by customer age > 65
+router.get('/age/young', async (req, res) => {
+    const youngCustomers = await Sale.find({"customer.age": {$gt: 65}).select('customer')                                             
+    res.send(youngCustomers)
+})
 module.exports = router;
