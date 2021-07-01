@@ -14,8 +14,7 @@ router.get('/sale/:id', async (req, res) => {
   router.get('/store/:location', async (req, res) => {
       const locationSales = await Sale.find({storeLocation: req.params.location})
                                        .select('storeLocation')
-       
-      res.send(locationSales)
+     res.send(locationSales)
   })
 
   // Filtered by purchase Method
