@@ -3,13 +3,11 @@ const app = express()
 const port = 3000
 const mongoose = require('mongoose')
 
-
 //Routes
 const customers = require('./routes/customers')
 const sales = require('./routes/sales')
 app.use("/customers", customers)
 app.use("/sales", sales)
-
 
 mongoose.connect('mongodb+srv://shop-user:shop-user@cluster0.qzmc8.mongodb.net/sample_supplies?retryWrites=true&w=majority', {
     useNewUrlParser: true,
